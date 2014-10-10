@@ -17,6 +17,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSLog(@"TESTING");
+    UIScreen *screen = [UIScreen mainScreen];
+    
+    //CANVAS
+    CGRect viewRect = [screen bounds];
+    self.window = [[UIWindow alloc] initWithFrame:viewRect];
+    
+    //PAINTBRUSH
+    UIViewController *colourTouchVC = [[UIViewController alloc] init];
+    
+    //PAINT
+    UIView *colourView = [[UIView alloc] initWithFrame:viewRect];
+    
+    UIColor *bgColor = [[UIColor alloc] initWithRed:0.462 green:0.749 blue:0.937 alpha:1.0];
+    
+    //[bgColor in
+    colourView.backgroundColor =bgColor;
+    
+    self.window.rootViewController = colourTouchVC;
+    
+    
+    colourTouchVC.view = colourView;
+    
+    [self.window makeKeyAndVisible];
+    
+    NSLog(@"Screen is %f tall and %f wide",
+          viewRect.size.height, viewRect.size.width);
     return YES;
 }
 
